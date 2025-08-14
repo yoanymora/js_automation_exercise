@@ -1,13 +1,7 @@
 import { $ } from '@wdio/globals'
-import Page from './page.js';
+import Page from './page';
 
-/**
- * sub page containing specific selectors and methods for a specific page
- */
 class LoginPage extends Page {
-    /**
-     * define selectors using getter methods
-     */
     get inputEmail () {
         return $('#email');
     }
@@ -16,25 +10,18 @@ class LoginPage extends Page {
         return $('#password');
     }
 
-    get btnSubmit () {
-        return $('button[type="submit"]');
+    get submit () {
+        return $('input[type="submit"]');
     }
 
-    /**
-     * a method to encapsule automation code to interact with the page
-     * e.g. to login using username and password
-     */
+    get errorMessage () {
+        return $('div[data-test="login-error"]');
+    }
+
     async login (email, password) {
         await this.inputEmail.setValue(email);
         await this.inputPassword.setValue(password);
-        await this.btnSubmit.click();
-    }
-
-    /**
-     * overwrite specific options to adapt it to page object
-     */
-    open () {
-        return super.open('/auth/login');
+        await this.submit.click();
     }
 }
 
