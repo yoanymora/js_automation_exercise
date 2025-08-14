@@ -1,0 +1,12 @@
+{
+  "name": "js_automation_epam_practice_task",
+  "type": "module",
+  "devDependencies": {
+    "@wdio/local-runner": "^9.19.1",
+    "@wdio/mocha-framework": "^9.19.1",
+    "@wdio/spec-reporter": "^9.19.1"
+  },
+  "scripts": {
+    "wdio": "wdio run ./wdio.conf.js"
+  }
+}
