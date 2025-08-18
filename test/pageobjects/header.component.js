@@ -51,7 +51,7 @@ export default class Header {
     }
 
     get cartQuantity () {
-        return $('a[data-test="nav-cart"] span[data-test="cart-quantity"]').textContent;
+        return $('a[data-test="nav-cart"] span[data-test="cart-quantity"]');
     }
 
     // TODO learn how to get different links throush the same method with a
