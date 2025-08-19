@@ -11,7 +11,7 @@ class LoginPage extends Page {
     }
 
     get submit () {
-        return $('input[type="submit"]');
+        return $('input[data-test="login-submit"]');
     }
 
     get errorMessage () {
