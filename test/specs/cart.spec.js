@@ -12,10 +12,7 @@ describe('Cart', () => {
     });
 
     it('User goes to the cart page', async() => {
-        // await HomePage.open('');
-        // await HomePage.productCard.click();
-        // await ProductDetailsPage.addToCartButton.click();
-        // await expect(ProductDetailsPage.cartQuantity).toHaveText('1');
+        await expect(ProductDetailsPage.cartQuantity).toHaveText('1');
         await CartPage.open('checkout');
         await expect(CartPage.productsTable).toExist();
         await expect(CartPage.productQuantity).toExist();
