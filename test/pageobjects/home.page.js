@@ -5,16 +5,44 @@ class Homepage extends Page {
         return $('div.row div.container');
     }
 
-    get productCard () {
-        return $('a.card');
+    get productCards () {
+        return $$('a.card');
     }
 
-    get productCardTitle () {
-        return $('a.card div.card-body h5[data-test="product-name"]');
+    get productCardTitles () {
+        return $$('h5[data-test="product-name"]');
     }
 
-    get productCardPrice () {
-        return $('a.card div.card-footer span[data-test="product-price"]');
+    get productCardPrices () {
+        return $$('span[data-test="product-price"]');
+    }
+
+    get sortDropdown () {
+        return $('select[data-test="sort"]');
+    }
+
+    get priceRangeSelector () {
+        return $('.ngx-slider');
+    }
+
+    get searchInput () {
+        return $('#search-query');
+    }
+
+    get searchResetButton () {
+        return $('#search-reset');
+    }
+
+    get searchButton () {
+        return $('button[data-test="search-submit"]');
+    }
+
+    async sortByPriceHighestToLowest () {
+        await this.sortDropdown.selectByAttribute('value', 'price,desc');
+    }
+
+    async sortByPriceLowestToHighest () {
+        await this.sortDropdown.selectByAttribute('value', 'price,asc');
     }
 }
 
