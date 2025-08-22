@@ -20,11 +20,6 @@ export default class Header {
     get languageSelector () {
         return $('#language');
     }
-    // TODO: ask Andrea if there is another way to create a function to return the
-    // language passing a param
-    get languageDE () {
-        return $('a[data-test="lang-de"]');
-    }
 
     get languageEN () {
         return $('a[data-test="lang-en"]');
@@ -38,14 +33,6 @@ export default class Header {
         return $('a[data-test="lang-fr"]');
     }
 
-    get languageNL () {
-        return $('a[data-test="lang-nl"]');
-    }
-
-    get languageTR () {
-        return $('a[data-test="lang-tr"]');
-    }
-
     get cartLink () {
         return $('a[data-test="nav-cart"]');
     }
@@ -54,8 +41,6 @@ export default class Header {
         return $('a[data-test="nav-cart"] span[data-test="cart-quantity"]');
     }
 
-    // TODO learn how to get different links throush the same method with a
-    // parameter
     get userAccount () {
         return $('#menu li[data-test="nav-my-account"]');
     }

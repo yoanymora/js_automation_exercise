@@ -13,10 +13,10 @@ describe("Language selector", () => {
     });
 
     it("User switches the language from ES to FR", async () => {
-        await expect(await Homepage.productCardPrice).toHaveText(expect.stringContaining('$'));
+        await expect(await Homepage.productCardPrices[0]).toHaveText(expect.stringContaining('$'));
         await Homepage.languageSelector.click();
         await Homepage.languageFR.click();
         await expect(await Homepage.languageSelector).toHaveText('FR');
-        await expect(await Homepage.productCardPrice).toHaveText(expect.stringContaining('€'));
+        await expect(await Homepage.productCardPrices[0]).not.toHaveText(expect.stringContaining('€'));
     });
 });

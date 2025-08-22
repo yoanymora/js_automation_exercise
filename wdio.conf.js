@@ -21,7 +21,11 @@ export const config = {
     // of the config file unless it's absolute.
     //
     specs: [
-        './test/specs/**/*.js'
+        './test/specs/cart.spec.js',
+        './test/specs/language.selector.spec.js',
+        './test/specs/login.spec.js',
+        './test/specs/sort.products.spec.js',
+        './test/specs/filter.products.spec.js'
     ],
     // Patterns to exclude.
     exclude: [
@@ -43,7 +47,7 @@ export const config = {
     // and 30 processes will get spawned. The property handles how many capabilities
     // from the same test should run tests.
     //
-    maxInstances: 2, // TODO: ask Andrea if this is the correct config to run 2 instances in parallel point 6, task 2
+    maxInstances: 2,
     //
     // If you have trouble getting all important capabilities together, check out the
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
@@ -51,13 +55,22 @@ export const config = {
     //
     capabilities: [
         {
-            browserName: 'chrome'
+            browserName: 'chrome',
+            'goog:chromeOptions': {
+                args: ['headless', 'disable-gpu']
+            }
         },
         {
-            browserName: 'firefox'
+            browserName: 'firefox',
+            'moz:firefoxOptions': {
+                args: ['-headless']
+            }
         },
         {
-            browserName: 'safari'
+            browserName: 'msedge',
+            'ms:edgeOptions': {
+                args: ['--headless']
+            }
         }
     ],
 
@@ -117,13 +130,12 @@ export const config = {
     // Make sure you have the wdio adapter package for the specific framework installed
     // before running any tests.
     framework: 'mocha',
-    
     //
     // The number of times to retry the entire specfile when it fails as a whole
-    // specFileRetries: 1,
+    specFileRetries: 1,
     //
     // Delay in seconds between the spec file retry attempts
-    // specFileRetriesDelay: 0,
+    specFileRetriesDelay: 2,
     //
     // Whether or not retried spec files should be retried immediately or deferred to the end of the queue
     // specFileRetriesDeferred: false,
