@@ -25,7 +25,12 @@ export const config = {
         './test/specs/language.selector.spec.js',
         './test/specs/login.spec.js',
         './test/specs/sort.products.spec.js',
-        './test/specs/filter.products.spec.js'
+        './test/specs/filter.products.spec.js',
+        './test/specs/cart.chai.expect.js',
+        './test/specs/sort.products.chai.assert.js',
+        './test/specs/login.chai.assert.js',
+        './test/specs/language.selector.chai.should.js',
+        './test/specs/filter.products.chai.should.js'
     ],
     // Patterns to exclude.
     exclude: [
