@@ -1,4 +1,4 @@
-import HomePage from "../pageobjects/home.page";
+import HomePage from "../po/pages/home.page";
 import { should } from 'chai';
 
 should();

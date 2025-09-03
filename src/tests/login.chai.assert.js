@@ -1,5 +1,5 @@
-import LoginPage from "../pageobjects/login.page";
-import RegisterPage from "../pageobjects/register.page";
+import LoginPage from "../po/pages/login.page";
+import RegisterPage from "../po/pages/register.page";
 import { assert } from 'chai';
 
 describe("Login Page", () => {

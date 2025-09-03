@@ -1,4 +1,4 @@
-import HomePage from "../pageobjects/home.page";
+import HomePage from "../po/pages/home.page";
 
 describe("Sort products", () => {
     it("User sorts products by price from highest to lowest", async () => {

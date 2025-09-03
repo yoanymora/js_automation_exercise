@@ -1,5 +1,5 @@
 import { browser } from '@wdio/globals';
-import Header from './header.component';
+import Header from '../components/header.component';
 /**
 * main page object containing all methods, selectors and functionality
 * that is shared across all page objects

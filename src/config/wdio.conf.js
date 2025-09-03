@@ -21,16 +21,16 @@ export const config = {
     // of the config file unless it's absolute.
     //
     specs: [
-        './test/specs/cart.spec.js',
-        './test/specs/language.selector.spec.js',
-        './test/specs/login.spec.js',
-        './test/specs/sort.products.spec.js',
-        './test/specs/filter.products.spec.js',
-        './test/specs/cart.chai.expect.js',
-        './test/specs/sort.products.chai.assert.js',
-        './test/specs/login.chai.assert.js',
-        './test/specs/language.selector.chai.should.js',
-        './test/specs/filter.products.chai.should.js'
+        '../tests/cart.spec.js',
+        '../tests/language.selector.spec.js',
+        '../tests/login.spec.js',
+        '../tests/sort.products.spec.js',
+        '../tests/filter.products.spec.js',
+        '../tests/cart.chai.expect.js',
+        '../tests/sort.products.chai.assert.js',
+        '../tests/login.chai.assert.js',
+        '../tests/language.selector.chai.should.js',
+        '../tests/filter.products.chai.should.js'
     ],
     // Patterns to exclude.
     exclude: [
@@ -61,21 +61,21 @@ export const config = {
     capabilities: [
         {
             browserName: 'chrome',
-            'goog:chromeOptions': {
-                args: ['headless', 'disable-gpu']
-            }
-        },
-        {
-            browserName: 'firefox',
-            'moz:firefoxOptions': {
-                args: ['-headless']
-            }
-        },
-        {
-            browserName: 'msedge',
-            'ms:edgeOptions': {
-                args: ['--headless']
-            }
+        //     'goog:chromeOptions': {
+        //         args: ['headless', 'disable-gpu']
+        //     }
+        // },
+        // {
+        //     browserName: 'firefox',
+        //     'moz:firefoxOptions': {
+        //         args: ['-headless']
+        //     }
+        // },
+        // {
+        //     browserName: 'msedge',
+        //     'ms:edgeOptions': {
+        //         args: ['--headless']
+        //     }
         }
     ],
 

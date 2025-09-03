@@ -1,6 +1,6 @@
-import ProductDetailsPage from "../pageobjects/product.details.page";
-import CartPage from "../pageobjects/cart.page";
-import HomePage from "../pageobjects/home.page";
+import ProductDetailsPage from "../po/pages/product.details.page";
+import CartPage from "../po/pages/cart.page";
+import HomePage from "../po/pages/home.page";
 
 describe('Cart', () => {
     it('User adds a product to the cart', async () => {

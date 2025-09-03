@@ -1,4 +1,4 @@
-import HomePage from "../pageobjects/home.page";
+import HomePage from "../po/pages/home.page";
 
 describe("Filter products", () => {
     it("User filters products by brand", async () => {
