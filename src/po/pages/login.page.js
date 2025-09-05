@@ -2,6 +2,11 @@ import { $ } from '@wdio/globals'
 import Page from './page';
 
 class LoginPage extends Page {
+
+    constructor() {
+        super('auth/login');
+    }
+
     get inputEmail () {
         return $('#email');
     }

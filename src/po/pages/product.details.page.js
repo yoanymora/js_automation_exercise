@@ -3,12 +3,12 @@ import Page from './page'
 
 class ProductDetailsPage extends Page {
 
-    get addToCartButton() {
-        return $('#btn-add-to-cart');
+    constructor() {
+        super('product/1');
     }
 
-    get addToFavoritesButton() {
-        return $('#btn-add-to-favorites');
+    get addToCartButton() {
+        return $('#btn-add-to-cart');
     }
 
     get confirmationMessageContainer() {

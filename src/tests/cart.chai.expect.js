@@ -5,18 +5,18 @@ import { expect } from 'chai';
 
 describe('Cart', () => {
     it('User adds a product to the cart', async () => {
-        await HomePage.open('');
+        await HomePage.open();
         await HomePage.productCards[0].click();
         await ProductDetailsPage.addToCartButton.click();
         await ProductDetailsPage.confirmationMessageContainer.waitForDisplayed();
         expect(await ProductDetailsPage.confirmationMessageContainer.getText()).to.equal('Product added to shopping cart.');
-        await ProductDetailsPage.cartQuantity.waitForDisplayed();
-        expect(await ProductDetailsPage.cartQuantity.getText()).to.equal('1');
+        await ProductDetailsPage.header.cartQuantity.waitForDisplayed();
+        expect(await ProductDetailsPage.header.cartQuantity.getText()).to.equal('1');
     });
 
     it('User goes to the cart page', async() => {
-        expect(await ProductDetailsPage.cartQuantity.getText()).to.equal('1');
-        await CartPage.open('checkout');
+        expect(await ProductDetailsPage.header.cartQuantity.getText()).to.equal('1');
+        await CartPage.open();
         expect(await CartPage.productsTable).to.exist;
         expect(await CartPage.productQuantity).to.exist;
         let productQuantity = await CartPage.productQuantity.getValue();
@@ -28,8 +28,8 @@ describe('Cart', () => {
     });
 
     it("User increases the quantity of products in its cart", async () => {
-        expect(await ProductDetailsPage.cartQuantity.getText()).to.equal('1');
-        await CartPage.open('checkout');
+        expect(await ProductDetailsPage.header.cartQuantity.getText()).to.equal('1');
+        await CartPage.open();
         await CartPage.productQuantity.waitForDisplayed({ timeout: 5000 });
         await CartPage.productQuantity.setValue('2');
         await browser.keys('Enter');

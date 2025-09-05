@@ -3,6 +3,10 @@ import { $ } from '@wdio/globals';
 
 class CartPage extends Page {
 
+    constructor() {
+        super('checkout');
+    }
+
     get productsTable() {
         return $('table');
     }

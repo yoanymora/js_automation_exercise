@@ -2,6 +2,11 @@ import { $ } from '@wdio/globals';
 import Page from './page';
 
 class RegisterPage extends Page {
+
+    constructor() {
+        super('auth/register');
+    }
+
     get name () {
         return $('#first_name');
     }
@@ -55,7 +60,7 @@ class RegisterPage extends Page {
     }
 
     async createUser () {
-        await this.open("auth/register");
+        await this.open();
         await this.name.setValue("test");
         await this.lastName.setValue("test");
         await this.birthDay.setValue("2000-01-01");

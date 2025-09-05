@@ -4,16 +4,16 @@ import HomePage from "../po/pages/home.page";
 
 describe('Cart', () => {
     it('User adds a product to the cart', async () => {
-        await HomePage.open('');
+        await HomePage.open();
         await HomePage.productCards[0].click();
         await ProductDetailsPage.addToCartButton.click();
         await expect(ProductDetailsPage.confirmationMessageContainer).toBeDisplayed();
-        await expect(ProductDetailsPage.cartQuantity).toHaveText('1');
+        await expect(ProductDetailsPage.header.cartQuantity).toHaveText('1');
     });
 
     it('User goes to the cart page', async() => {
-        await expect(ProductDetailsPage.cartQuantity).toHaveText('1');
-        await CartPage.open('checkout');
+        await expect(ProductDetailsPage.header.cartQuantity).toHaveText('1');
+        await CartPage.open();
         await expect(CartPage.productsTable).toExist();
         await expect(CartPage.productQuantity).toExist();
         let productQuantity = await CartPage.productQuantity.getValue();
@@ -25,8 +25,8 @@ describe('Cart', () => {
     });
 
     it("User increases the quantity of products in its cart", async () => {
-        await expect(ProductDetailsPage.cartQuantity).toHaveText('1');
-        await CartPage.open('checkout');
+        await expect(ProductDetailsPage.header.cartQuantity).toHaveText('1');
+        await CartPage.open();
         await CartPage.productQuantity.setValue('2');
         await browser.keys('Enter');
         await CartPage.successMessageContainer.waitForExist();

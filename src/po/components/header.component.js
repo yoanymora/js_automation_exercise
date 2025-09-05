@@ -1,8 +1,18 @@
 import { $ } from '@wdio/globals'
+import BaseComponent from './base.component';
 
-export default class Header {
+export default class Header extends BaseComponent {
+
+    constructor() {
+        super('.navbar');
+    }
+
     get languageSelector () {
         return $('#language');
+    }
+
+    get cartQuantity () {
+        return this.rootElement.$('span[data-test="cart-quantity"]');
     }
 
     language(lang) {
@@ -10,10 +20,6 @@ export default class Header {
             'spanish': 'es',
             'french': 'fr'
         };
-        return $(`a[data-test="lang-${languages[lang]}"]`);
-    }
-
-    get cartQuantity () {
-        return $('span[data-test="cart-quantity"]');
+        return this.rootElement.$(`a[data-test="lang-${languages[lang]}"]`);
     }
 }
