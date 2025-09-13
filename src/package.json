@@ -6,12 +6,15 @@
     "@wdio/cli": "^9.19.1",
     "@wdio/local-runner": "^9.19.1",
     "@wdio/mocha-framework": "^9.19.1",
-    "@wdio/spec-reporter": "^9.19.1"
+    "@wdio/spec-reporter": "^9.19.1",
+    "supertest": "^7.1.4"
   },
   "scripts": {
-    "wdio": "wdio run ./config/wdio.conf.js"
+    "wdio": "wdio run ./config/wdio.conf.js",
+    "supertest": "mocha ./tests/supertest/booker.js"
   },
   "dependencies": {
-    "chai": "^6.0.1"
+    "chai": "^6.0.1",
+    "joi": "^18.0.1"
   }
 }
