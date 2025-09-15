@@ -30,8 +30,20 @@ class Homepage extends Page {
         return $('h5=Bolt Cutters');
     }
 
-    async filterProductsByBrandForgeFlexTools () {
-        await this.forgeFlexToolsBrand.click();
+    get combinationPliersProduct () {
+        return "Combination Pliers";
+    }
+
+    get hammerProduct() {
+        return "Claw Hammer with Shock Reduction Grip";
+    }
+
+    get drawerProduct () {
+        return "Drawer Tool Cabinet";
+    }
+
+    get washersProduct() {
+        return "Washers";
     }
 
 }

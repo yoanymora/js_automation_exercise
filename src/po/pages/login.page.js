@@ -23,11 +23,10 @@ class LoginPage extends Page {
         return $('div[data-test="login-error"]');
     }
 
-    async login (email, password) {
-        await this.inputEmail.setValue(email);
-        await this.inputPassword.setValue(password);
-        await this.submit.click();
+    get blockedAccountMessage() {
+        return 'Account locked, too many failed attempts. Please contact the administrator.';
     }
+
 }
 
 export default new LoginPage();

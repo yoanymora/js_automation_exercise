@@ -14,6 +14,7 @@ class ProductDetailsPage extends Page {
     get confirmationMessageContainer() {
         return $('.toast-success');
     }
+
 }
 
 export default new ProductDetailsPage();

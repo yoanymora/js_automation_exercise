@@ -59,21 +59,6 @@ class RegisterPage extends Page {
         return $('button[data-test="register-submit"]');
     }
 
-    async createUser () {
-        await this.open();
-        await this.name.setValue("test");
-        await this.lastName.setValue("test");
-        await this.birthDay.setValue("2000-01-01");
-        await this.street.setValue("test");
-        await this.postalCode.setValue("29301");
-        await this.city.setValue("test");
-        await this.state.setValue("test");
-        await this.country.selectByAttribute('value', 'AL');
-        await this.phone.setValue("3332221111");
-        await this.email.setValue("test@test.com");
-        await this.password.setValue("Testtest01.");
-        await this.registerButton.click();
-    }
 }
 
 export default new RegisterPage();
