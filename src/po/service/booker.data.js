@@ -39,10 +39,8 @@ export const bookingData = {
             "additionalneeds": "Breakfast"
         },
     },
-    endpoint: {
-        booking: '/booking',
-        auth: '/auth',
-        ping: '/ping',
+    headers: {
+        contentType: 'application/json; charset=utf-8',
     },
     multipleBookingCreationData: [
         {
@@ -80,6 +78,7 @@ export const bookingData = {
         }
     ],
     responseSchema: {
+        createBookingKeys: ['bookingid', 'booking'],
         createBooking: Joi.object({
             bookingid: Joi.number().required(),
             booking: Joi.object({
@@ -117,11 +116,13 @@ export const bookingData = {
         },
         "additionalneeds": "Breakfast"
     },
-    url: 'https://restful-booker.herokuapp.com'
 };
 
-export const expectedResponseTime = 800; // in milliseconds
+export const filterData = {
+    firstname: 'Tierra',
+    incorrectLastname: 'Media',
+    checkin: '2025-01-01',
+    lastname: 'Azul'
+}
 
-export function computeResponseTime(startTime, endTime) {
-    return endTime - startTime;
-};
+export const expectedResponseTime = 900; // in milliseconds
