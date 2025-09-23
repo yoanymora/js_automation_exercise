@@ -26,11 +26,6 @@ export const config = {
         '../tests/login.spec.js',
         '../tests/sort.products.spec.js',
         '../tests/filter.products.spec.js',
-        '../tests/cart.chai.expect.js',
-        '../tests/sort.products.chai.assert.js',
-        '../tests/login.chai.assert.js',
-        '../tests/language.selector.chai.should.js',
-        '../tests/filter.products.chai.should.js'
     ],
     // Patterns to exclude.
     exclude: [
@@ -61,21 +56,21 @@ export const config = {
     capabilities: [
         {
             browserName: 'chrome',
-        //     'goog:chromeOptions': {
-        //         args: ['headless', 'disable-gpu']
-        //     }
-        // },
-        // {
-        //     browserName: 'firefox',
-        //     'moz:firefoxOptions': {
-        //         args: ['-headless']
-        //     }
-        // },
-        // {
-        //     browserName: 'msedge',
-        //     'ms:edgeOptions': {
-        //         args: ['--headless']
-        //     }
+            'goog:chromeOptions': {
+                args: ['headless', 'disable-gpu']
+            }
+        },
+        {
+            browserName: 'firefox',
+            'moz:firefoxOptions': {
+                args: ['-headless']
+            }
+        },
+        {
+            browserName: 'msedge',
+            'ms:edgeOptions': {
+                args: ['--headless']
+            }
         }
     ],
 
@@ -137,7 +132,7 @@ export const config = {
     framework: 'mocha',
     //
     // The number of times to retry the entire specfile when it fails as a whole
-    specFileRetries: 1,
+    specFileRetries: 2,
     //
     // Delay in seconds between the spec file retry attempts
     specFileRetriesDelay: 2,

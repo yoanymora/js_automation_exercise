@@ -46,6 +46,19 @@ class CartPage extends Page {
     get successMessage () {
         return $('div.toast-message');
     }
+
+    get productQuantityUpdatedMessage() {
+        return "Product quantity updated.";
+    }
+
+    get productAddedToCartMessage() {
+        return "Product added to shopping cart.";
+    }
+
+    get productPriceValue() {
+        return "$28.30";
+    }
+
 }
 
 export default new CartPage();

@@ -1,22 +1,44 @@
 import HomePage from "../po/pages/home.page";
+import HomeService from "../po/services/home.service";
+import { should } from 'chai';
+import Common from "../po/services/common";
+
+should();
 
 describe("Filter products", () => {
     beforeEach( async () => {
         await HomePage.open();
     });
 
-    it("User filters products by brand", async () => {
-        await expect(HomePage.productCardTitles[0]).toHaveText("Combination Pliers");
-        await HomePage.filterProductsByBrandForgeFlexTools();
-        await expect(HomePage.productCardTitles[0]).toHaveText("Claw Hammer with Shock Reduction Grip");
+    it("User filters products by brand with spec", async () => {
+        await expect(HomePage.productCardTitles[0]).toHaveText(HomePage.combinationPliersProduct);
+        await HomeService.filterProductsByBrandForgeFlexTools();
+        await expect(HomePage.productCardTitles[0]).toHaveText(HomePage.hammerProduct);
     });
 
-    it("User filters products by price range", async () => {
+    it("User filters products by price range with spec", async () => {
         await expect(await HomePage.boltCuttersTool).toBeExisting();
-        let offset = await HomePage.filter.computePriceRangeTo39();
-        await HomePage.filter.priceRangeSelectorMax.dragAndDrop({ x: offset, y: 0 });
-        await HomePage.productsGrid.waitForDisplayed();
+        await HomeService.setMaxPriceRangeSelectorTo39();
+        HomePage.waitForVisible(await HomePage.productsGrid);
         await expect(await HomePage.filter.priceRangeMaxValue).toHaveText("39");
         await expect(await HomePage.boltCuttersTool).not.toBeExisting();
     });
+
+    it("User filters products by brand with chai - should", async () => {
+        HomePage.waitForVisible(await HomePage.productCardTitles[0]);
+        (await Common.getSelectorText(await HomePage.productCardTitles[0])).should.equal(HomePage.combinationPliersProduct);
+        await HomeService.filterProductsByBrandForgeFlexTools();
+        await HomeService.waitUntilFilterSortingCompleted('filter');
+        HomePage.waitForVisible(await HomePage.productCardTitles[0]);
+        (await Common.getSelectorText(await HomePage.productCardTitles[0])).should.equal(HomePage.hammerProduct);
+    });
+
+    it("User filters products by price range with chai - should", async () => {
+        (await HomePage.boltCuttersTool).should.exist;
+        await HomeService.setMaxPriceRangeSelectorTo39();
+        await HomePage.waitUntilUpdateText(await HomePage.filter.priceRangeMaxValue, "39");
+        (await Common.getSelectorText(await HomePage.filter.priceRangeMaxValue)).should.equal("39");
+        (await HomePage.boltCuttersTool.isExisting()).should.to.be.false;
+    });
+
 });

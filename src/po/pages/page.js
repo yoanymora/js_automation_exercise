@@ -18,4 +18,20 @@ export default class Page {
     async open () {
         await browser.url(`https://practicesoftwaretesting.com/${this.endpoint}`);
     }
+
+    waitForVisible(element, timeout = 5000) {
+        element.waitForDisplayed({ timeout });
+    }
+
+    waitForClickable(element, timeout = 5000) {
+        element.waitForClickable({ timeout });
+    }
+
+    async waitUntilUpdateText(selector, value, timeout = 5000) {
+        await browser.waitUntil(
+            async () => (await selector.getText()) === value,
+            { timeout, timeoutMsg: `expected text to be different after ${timeout}ms` }
+        );
+    }
+
 }
