@@ -1,6 +1,6 @@
 import { should } from 'chai';
-import { bookingData, expectedResponseTime, filterData } from '../../po/service/booker.data.js';
-import bookerService from '../../po/service/booker.service.js';
+import { bookingData, expectedResponseTime, filterData } from '../services/booker.data.js';
+import bookerService from '../services/booker.service.js';
 import Joi from 'joi';
 
 should();

@@ -10,8 +10,8 @@
     "supertest": "^7.1.4"
   },
   "scripts": {
-    "wdio": "wdio run ./config/wdio.conf.js",
-    "supertest": "mocha ./tests/supertest/booker.js"
+    "wdio": "wdio run ./ui/config/wdio.conf.js",
+    "supertest": "mocha ./api/tests/booker.js"
   },
   "dependencies": {
     "chai": "^6.0.1",
