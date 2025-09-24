@@ -1,7 +1,7 @@
 import request from 'supertest';
-import { bookingData } from './booker.data.js';
+import { bookingData } from '../data/booker.data.js';
 
-class BookerService {
+class BookerService  {
 
     constructor () {
         this.url = 'https://restful-booker.herokuapp.com';
@@ -46,7 +46,8 @@ class BookerService {
             headers: response.headers,
             responseTime: await this.computeResponseTime(startTime, endTime),
             statusCode: response.statusCode,
-            bookingId: response.body.bookingid || false
+            bookingId: response.body.bookingid || false,
+            length: response.body.length,
         }
     }
 

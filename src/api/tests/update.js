@@ -1,16 +1,13 @@
-import { should } from 'chai';
-import { bookingData, expectedResponseTime, filterData } from '../services/booker.data.js';
+import { bookingData } from '../data/booker.data.js';
 import bookerService from '../services/booker.service.js';
-import Joi from 'joi';
-
-should();
+import Validate from '../utils/validations.js';
 
 describe('Update bookings', () => {
 
     it('Incorrectly update booking', async () => {
         const createBookingResponse = await bookerService.createBooking();
-        (createBookingResponse.statusCode).should.be.equal(200);
-        (createBookingResponse.body.booking.firstname).should.equal(bookingData.createBooking.correct.firstname);
+        Validate.statusCode('ok', createBookingResponse.statusCode);
+        Validate.recordFirstname({current: createBookingResponse.body.booking.firstname});
         const updateBookingResponse = await bookerService.updateBooking(
             {
                 bookingId: createBookingResponse.bookingId,
@@ -18,27 +15,29 @@ describe('Update bookings', () => {
                 data: bookingData.createBooking.incorrect
             }
         );
-        (updateBookingResponse.statusCode).should.be.equal(500);
+        Validate.statusCode('internal-server-error', updateBookingResponse.statusCode);
     });
 
     it('Update booking with Basic Auth', async () => {
         const createBookingResponse = await bookerService.createBooking();
-        (createBookingResponse.body.booking.firstname).should.be.equal(bookingData.createBooking.correct.firstname);
+        Validate.recordFirstname({current: createBookingResponse.body.booking.firstname});
         const updateBookingResponse = await bookerService.updateBooking(
             {
                 bookingId: createBookingResponse.bookingId,
                 auth: 'basic'
             }
         );
-        (updateBookingResponse.statusCode).should.be.equal(200);
-        (updateBookingResponse.body.firstname).should.not.to.equal(bookingData.createBooking.correct.firstname);
-        (updateBookingResponse.body.firstname).should.be.equal(bookingData.updateBooking.firstname);
-        Joi.assert(updateBookingResponse.body, bookingData.responseSchema.updateBooking);
+        Validate.statusCode('ok', updateBookingResponse.statusCode);
+        Validate.recordFirstname({current: updateBookingResponse.body.firstname, assertion: false});
+        Validate.recordFirstname({current: updateBookingResponse.body.firstname, expected: bookingData.updateBooking.firstname});
+        Validate.responseBody(
+            {level: 'schema', request: 'update', value: updateBookingResponse.body, assertion: true}
+        );
     });
 
     it('Update booking with Cookie', async () => {
         const createBookingResponse = await bookerService.createBooking();
-        (createBookingResponse.body.booking.firstname).should.be.equal(bookingData.createBooking.correct.firstname);
+        Validate.recordFirstname({current: createBookingResponse.body.booking.firstname});
         const authResponse = await bookerService.createRequest({verb: 'auth'});
         const updateBookingResponse = await bookerService.updateBooking(
             {
@@ -47,9 +46,11 @@ describe('Update bookings', () => {
                 token: authResponse.body.token
             }
         );
-        (updateBookingResponse.body.firstname).should.not.to.equal(bookingData.createBooking.correct.firstname);
-        (updateBookingResponse.body.firstname).should.be.equal(bookingData.updateBooking.firstname);
-        Joi.assert(updateBookingResponse.body, bookingData.responseSchema.updateBooking);
+        Validate.recordFirstname({current: updateBookingResponse.body.firstname, assertion: false});
+        Validate.recordFirstname({current: updateBookingResponse.body.firstname, expected: bookingData.updateBooking.firstname});
+        Validate.responseBody(
+            {level: 'schema', request: 'update', value: updateBookingResponse.body, assertion: true}
+        );
     });
 
 });

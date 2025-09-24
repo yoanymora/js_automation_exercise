@@ -1,7 +1,5 @@
-import { should } from 'chai';
 import bookerService from '../services/booker.service.js';
-
-should();
+import Validate from '../utils/validations.js';
 
 describe('Delete booking', () => {
 
@@ -10,8 +8,7 @@ describe('Delete booking', () => {
         const deleteBookingResponse = await bookerService.deleteBooking(
             {bookingId: createBookingResponse.bookingId, auth: 'basic'}
         );
-        (deleteBookingResponse.statusCode).should.be.equal(201);
-        (deleteBookingResponse.text).should.equal('Created');
+        Validate.statusCode('created', deleteBookingResponse.statusCode);
     });
 
     it('Delete booking with Cookie', async () => {
@@ -20,10 +17,9 @@ describe('Delete booking', () => {
         const deleteBookingResponse = await bookerService.deleteBooking(
             {bookingId: createBookingResponse.bookingId, auth: 'cookie', token: authResponse.body.token}
         );
-        (deleteBookingResponse.statusCode).should.be.equal(201);
-        (deleteBookingResponse.text).should.equal('Created');
+        Validate.statusCode('created', deleteBookingResponse.statusCode);
         const getDeletedBookingResponse = await bookerService.getBookings({bookingId: createBookingResponse.bookingId});
-        (getDeletedBookingResponse.statusCode).should.be.equal(404);
+        Validate.statusCode('not-found', getDeletedBookingResponse.statusCode);
     });
 
 });
