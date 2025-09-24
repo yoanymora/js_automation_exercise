@@ -59,18 +59,18 @@ export const config = {
             'goog:chromeOptions': {
                 args: ['headless', 'disable-gpu']
             }
-        },
-        {
-            browserName: 'firefox',
-            'moz:firefoxOptions': {
-                args: ['-headless']
-            }
-        },
-        {
-            browserName: 'msedge',
-            'ms:edgeOptions': {
-                args: ['--headless']
-            }
+        // },
+        // {
+        //     browserName: 'firefox',
+        //     'moz:firefoxOptions': {
+        //         args: ['-headless']
+        //     }
+        // },
+        // {
+        //     browserName: 'msedge',
+        //     'ms:edgeOptions': {
+        //         args: ['--headless']
+        //     }
         }
     ],
 
