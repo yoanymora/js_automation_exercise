@@ -11,11 +11,11 @@ describe('Delete booking', () => {
         Validate.statusCode('created', deleteBookingResponse.statusCode);
     });
 
-    it('Delete booking with Cookie', async () => {
+    it('Delete booking with Authorization header', async () => {
         const createBookingResponse = await bookerService.createBooking();
         const authResponse = await bookerService.createRequest({verb: 'auth'});
         const deleteBookingResponse = await bookerService.deleteBooking(
-            {bookingId: createBookingResponse.bookingId, auth: 'cookie', token: authResponse.body.token}
+            {bookingId: createBookingResponse.bookingId, auth: 'authorization_header', token: authResponse.body.token}
         );
         Validate.statusCode('created', deleteBookingResponse.statusCode);
         const getDeletedBookingResponse = await bookerService.getBookings({bookingId: createBookingResponse.bookingId});

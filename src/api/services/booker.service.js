@@ -10,6 +10,7 @@ class BookerService  {
             auth: '/auth',
             ping: '/ping',
         };
+        this.authorizationBasic = 'Basic YWRtaW46cGFzc3dvcmQxMjM=';
     }
 
     async computeResponseTime(startTime, endTime) {
@@ -90,7 +91,7 @@ class BookerService  {
         .put(endpoint)
         .set('Accept', 'application/json')
         .set('Content-type', 'application/json')
-        .set('Cookie', `token=${token}`)
+        .set('Authorization', this.authorizationBasic)
         .send(data);
     }
 
@@ -102,7 +103,7 @@ class BookerService  {
         }
         return await request(this.url)
         .delete(endpoint)
-        .set('Cookie', `token=${token}`);
+        .set('Authorization', this.authorizationBasic);
     }
 
     async getBookings({bookingId, endpoint = this.endpoint.booking}) {
