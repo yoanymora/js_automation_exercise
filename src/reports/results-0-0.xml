@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites tests="4" failures="0" errors="0" skipped="0">
+  <testsuite name="Filter products" timestamp="2025-09-24T12:03:34" time="9.854" tests="4" failures="0" errors="0" skipped="0">
+    <properties>
+      <property name="specId" value="0"/>
+      <property name="suiteName" value="Filter products"/>
+      <property name="capabilities" value="chrome.140_0_7339_207.linux"/>
+      <property name="file" value="file://./ui/tests/filter.products.spec.js"/>
+    </properties>
+    <testcase classname="chrome.140_0_7339_207.linux.Filter_products" name="User filters products by brand with spec" time="4.01">
+      <system-out><![CDATA[
+COMMAND: GET /session/2bd19f8f634515997874da8a39a43a61/element/f.7DC206F037018112181C81E202738B7C.d.6E60DC74D15B8878E955FD550D370202.e.16/text - {}
+RESULT: {}
+COMMAND: POST /session/2bd19f8f634515997874da8a39a43a61/element/f.7DC206F037018112181C81E202738B7C.d.6E60DC74D15B8878E955FD550D370202.e.25/click - {}
+RESULT: {}
+COMMAND: GET /session/2bd19f8f634515997874da8a39a43a61/element/f.7DC206F037018112181C81E202738B7C.d.6E60DC74D15B8878E955FD550D370202.e.16/text - {}
+RESULT: {}
+COMMAND: GET /session/2bd19f8f634515997874da8a39a43a61/element/f.7DC206F037018112181C81E202738B7C.d.6E60DC74D15B8878E955FD550D370202.e.16/text - {}
+RESULT: {}
+COMMAND: GET /session/2bd19f8f634515997874da8a39a43a61/element/f.7DC206F037018112181C81E202738B7C.d.6E60DC74D15B8878E955FD550D370202.e.16/text - {}
+RESULT: {}
+COMMAND: GET /session/2bd19f8f634515997874da8a39a43a61/element/f.7DC206F037018112181C81E202738B7C.d.6E60DC74D15B8878E955FD550D370202.e.16/text - {}
+RESULT: {}
+COMMAND: GET /session/2bd19f8f634515997874da8a39a43a61/element/f.7DC206F037018112181C81E202738B7C.d.6E60DC74D15B8878E955FD550D370202.e.16/text - {}
+RESULT: {}
+COMMAND: GET /session/2bd19f8f634515997874da8a39a43a61/element/f.7DC206F037018112181C81E202738B7C.d.6E60DC74D15B8878E955FD550D370202.e.16/text - {}
+RESULT: {}
+COMMAND: GET /session/2bd19f8f634515997874da8a39a43a61/element/f.7DC206F037018112181C81E202738B7C.d.6E60DC74D15B8878E955FD550D370202.e.16/text - {}
+RESULT: {}
+COMMAND: GET /session/2bd19f8f634515997874da8a39a43a61/element/f.7DC206F037018112181C81E202738B7C.d.6E60DC74D15B8878E955FD550D370202.e.16/text - {}
+RESULT: {}
+COMMAND: GET /session/2bd19f8f634515997874da8a39a43a61/element/f.7DC206F037018112181C81E202738B7C.d.6E60DC74D15B8878E955FD550D370202.e.16/text - {}
+RESULT: {}
+COMMAND: GET /session/2bd19f8f634515997874da8a39a43a61/element/f.7DC206F037018112181C81E202738B7C.d.6E60DC74D15B8878E955FD550D370202.e.16/text - {}
+RESULT: {}
+COMMAND: GET /session/2bd19f8f634515997874da8a39a43a61/element/f.7DC206F037018112181C81E202738B7C.d.6E60DC74D15B8878E955FD550D370202.e.16/text - {}
+RESULT: {}
+COMMAND: GET /session/2bd19f8f634515997874da8a39a43a61/element/f.7DC206F037018112181C81E202738B7C.d.6E60DC74D15B8878E955FD550D370202.e.16/text - {}
+RESULT: {}
+COMMAND: GET /session/2bd19f8f634515997874da8a39a43a61/element/f.7DC206F037018112181C81E202738B7C.d.6E60DC74D15B8878E955FD550D370202.e.21/text - {}
+RESULT: {}
+]]></system-out>
+    </testcase>
+    <testcase classname="chrome.140_0_7339_207.linux.Filter_products" name="User filters products by price range with spec" time="2.738">
+      <system-out><![CDATA[
+COMMAND: GET /session/2bd19f8f634515997874da8a39a43a61/element/f.7DC206F037018112181C81E202738B7C.d.03EBE2196616F12774DFB3EBA912B498.e.87/css/width - {}
+RESULT: {}
+COMMAND: GET /session/2bd19f8f634515997874da8a39a43a61/element/f.7DC206F037018112181C81E202738B7C.d.03EBE2196616F12774DFB3EBA912B498.e.88/text - {}
+RESULT: {}
+COMMAND: POST /session/2bd19f8f634515997874da8a39a43a61/actions - {"actions":[{"id":"action1","type":"pointer","parameters":{"pointerType":"mouse"},"actions":[{"type":"pointerMove","button":0,"x":0,"y":0,"duration":0,"origin":{"element-6066-11e4-a52e-4f735466cecf":"f.7DC206F037018112181C81E202738B7C.d.03EBE2196616F12774DFB3EBA912B498.e.89"}},{"type":"pointerDown","button":0},{"type":"pause","duration":10},{"type":"pointerMove","button":0,"x":-82.96000000000001,"y":0,"duration":10,"origin":"pointer"},{"type":"pointerUp","button":0}]}]}
+RESULT: {"actions":[{"id":"action1","type":"pointer","parameters":{"pointerType":"mouse"},"actions":[{"type":"pointerMove","button":0,"x":0,"y":0,"duration":0,"origin":{"element-6066-11e4-a52e-4f735466cecf":"f.7DC206F037018112181C81E202738B7C.d.03EBE2196616F12774DFB3EBA912B498.e.89"}},{"type":"pointerDown","button":0},{"type":"pause","duration":10},{"type":"pointerMove","button":0,"x":-82.96000000000001,"y":0,"duration":10,"origin":"pointer"},{"type":"pointerUp","button":0}]}]}
+COMMAND: DELETE /session/2bd19f8f634515997874da8a39a43a61/actions - {}
+RESULT: {}
+COMMAND: GET /session/2bd19f8f634515997874da8a39a43a61/element/f.7DC206F037018112181C81E202738B7C.d.03EBE2196616F12774DFB3EBA912B498.e.91/css/display - {}
+RESULT: {}
+COMMAND: GET /session/2bd19f8f634515997874da8a39a43a61/element/f.7DC206F037018112181C81E202738B7C.d.03EBE2196616F12774DFB3EBA912B498.e.88/text - {}
+RESULT: {}
+]]></system-out>
+    </testcase>
+    <testcase classname="chrome.140_0_7339_207.linux.Filter_products" name="User filters products by brand with chai should" time="2.853">
+      <system-out><![CDATA[
+COMMAND: GET /session/2bd19f8f634515997874da8a39a43a61/element/f.7DC206F037018112181C81E202738B7C.d.41FF8BAADA3553DB12A66E20DE75E71A.e.125/css/display - {}
+RESULT: {}
+COMMAND: GET /session/2bd19f8f634515997874da8a39a43a61/element/f.7DC206F037018112181C81E202738B7C.d.41FF8BAADA3553DB12A66E20DE75E71A.e.125/text - {}
+RESULT: {}
+COMMAND: POST /session/2bd19f8f634515997874da8a39a43a61/element/f.7DC206F037018112181C81E202738B7C.d.41FF8BAADA3553DB12A66E20DE75E71A.e.134/click - {}
+RESULT: {}
+COMMAND: GET /session/2bd19f8f634515997874da8a39a43a61/element/f.7DC206F037018112181C81E202738B7C.d.41FF8BAADA3553DB12A66E20DE75E71A.e.156/attribute/data-test - {}
+RESULT: {}
+COMMAND: GET /session/2bd19f8f634515997874da8a39a43a61/element/f.7DC206F037018112181C81E202738B7C.d.41FF8BAADA3553DB12A66E20DE75E71A.e.156/attribute/data-test - {}
+RESULT: {}
+COMMAND: GET /session/2bd19f8f634515997874da8a39a43a61/element/f.7DC206F037018112181C81E202738B7C.d.41FF8BAADA3553DB12A66E20DE75E71A.e.156/attribute/data-test - {}
+RESULT: {}
+COMMAND: GET /session/2bd19f8f634515997874da8a39a43a61/element/f.7DC206F037018112181C81E202738B7C.d.41FF8BAADA3553DB12A66E20DE75E71A.e.156/attribute/data-test - {}
+RESULT: {}
+COMMAND: GET /session/2bd19f8f634515997874da8a39a43a61/element/f.7DC206F037018112181C81E202738B7C.d.41FF8BAADA3553DB12A66E20DE75E71A.e.156/attribute/data-test - {}
+RESULT: {}
+COMMAND: GET /session/2bd19f8f634515997874da8a39a43a61/element/f.7DC206F037018112181C81E202738B7C.d.41FF8BAADA3553DB12A66E20DE75E71A.e.156/attribute/data-test - {}
+RESULT: {}
+COMMAND: GET /session/2bd19f8f634515997874da8a39a43a61/element/f.7DC206F037018112181C81E202738B7C.d.41FF8BAADA3553DB12A66E20DE75E71A.e.156/attribute/data-test - {}
+RESULT: {}
+COMMAND: GET /session/2bd19f8f634515997874da8a39a43a61/element/f.7DC206F037018112181C81E202738B7C.d.41FF8BAADA3553DB12A66E20DE75E71A.e.156/attribute/data-test - {}
+RESULT: {}
+COMMAND: GET /session/2bd19f8f634515997874da8a39a43a61/element/f.7DC206F037018112181C81E202738B7C.d.41FF8BAADA3553DB12A66E20DE75E71A.e.156/attribute/data-test - {}
+RESULT: {}
+COMMAND: GET /session/2bd19f8f634515997874da8a39a43a61/element/f.7DC206F037018112181C81E202738B7C.d.41FF8BAADA3553DB12A66E20DE75E71A.e.156/attribute/data-test - {}
+RESULT: {}
+COMMAND: GET /session/2bd19f8f634515997874da8a39a43a61/element/f.7DC206F037018112181C81E202738B7C.d.41FF8BAADA3553DB12A66E20DE75E71A.e.156/attribute/data-test - {}
+RESULT: {}
+COMMAND: GET /session/2bd19f8f634515997874da8a39a43a61/element/f.7DC206F037018112181C81E202738B7C.d.41FF8BAADA3553DB12A66E20DE75E71A.e.156/attribute/data-test - {}
+RESULT: {}
+COMMAND: GET /session/2bd19f8f634515997874da8a39a43a61/element/f.7DC206F037018112181C81E202738B7C.d.41FF8BAADA3553DB12A66E20DE75E71A.e.156/attribute/data-test - {}
+RESULT: {}
+COMMAND: GET /session/2bd19f8f634515997874da8a39a43a61/element/f.7DC206F037018112181C81E202738B7C.d.41FF8BAADA3553DB12A66E20DE75E71A.e.156/attribute/data-test - {}
+RESULT: {}
+COMMAND: GET /session/2bd19f8f634515997874da8a39a43a61/element/f.7DC206F037018112181C81E202738B7C.d.41FF8BAADA3553DB12A66E20DE75E71A.e.156/attribute/data-test - {}
+RESULT: {}
+COMMAND: GET /session/2bd19f8f634515997874da8a39a43a61/element/f.7DC206F037018112181C81E202738B7C.d.41FF8BAADA3553DB12A66E20DE75E71A.e.130/css/display - {}
+RESULT: {}
+COMMAND: GET /session/2bd19f8f634515997874da8a39a43a61/element/f.7DC206F037018112181C81E202738B7C.d.41FF8BAADA3553DB12A66E20DE75E71A.e.130/text - {}
+RESULT: {}
+]]></system-out>
+    </testcase>
+    <testcase classname="chrome.140_0_7339_207.linux.Filter_products" name="User filters products by price range with chai should" time="0.253">
+      <system-out><![CDATA[
+COMMAND: GET /session/2bd19f8f634515997874da8a39a43a61/element/f.7DC206F037018112181C81E202738B7C.d.43BB9A252462E7C9E70199554F23C0A6.e.190/css/width - {}
+RESULT: {}
+COMMAND: GET /session/2bd19f8f634515997874da8a39a43a61/element/f.7DC206F037018112181C81E202738B7C.d.43BB9A252462E7C9E70199554F23C0A6.e.191/text - {}
+RESULT: {}
+COMMAND: POST /session/2bd19f8f634515997874da8a39a43a61/actions - {"actions":[{"id":"action2","type":"pointer","parameters":{"pointerType":"mouse"},"actions":[{"type":"pointerMove","button":0,"x":0,"y":0,"duration":0,"origin":{"element-6066-11e4-a52e-4f735466cecf":"f.7DC206F037018112181C81E202738B7C.d.43BB9A252462E7C9E70199554F23C0A6.e.193"}},{"type":"pointerDown","button":0},{"type":"pause","duration":10},{"type":"pointerMove","button":0,"x":-82.96000000000001,"y":0,"duration":10,"origin":"pointer"},{"type":"pointerUp","button":0}]}]}
+RESULT: {"actions":[{"id":"action2","type":"pointer","parameters":{"pointerType":"mouse"},"actions":[{"type":"pointerMove","button":0,"x":0,"y":0,"duration":0,"origin":{"element-6066-11e4-a52e-4f735466cecf":"f.7DC206F037018112181C81E202738B7C.d.43BB9A252462E7C9E70199554F23C0A6.e.193"}},{"type":"pointerDown","button":0},{"type":"pause","duration":10},{"type":"pointerMove","button":0,"x":-82.96000000000001,"y":0,"duration":10,"origin":"pointer"},{"type":"pointerUp","button":0}]}]}
+COMMAND: DELETE /session/2bd19f8f634515997874da8a39a43a61/actions - {}
+RESULT: {}
+COMMAND: GET /session/2bd19f8f634515997874da8a39a43a61/element/f.7DC206F037018112181C81E202738B7C.d.43BB9A252462E7C9E70199554F23C0A6.e.191/text - {}
+RESULT: {}
+COMMAND: GET /session/2bd19f8f634515997874da8a39a43a61/element/f.7DC206F037018112181C81E202738B7C.d.43BB9A252462E7C9E70199554F23C0A6.e.191/text - {}
+RESULT: {}
+COMMAND: DELETE /session/2bd19f8f634515997874da8a39a43a61 - {}
+RESULT: {}
+]]></system-out>
+    </testcase>
+  </testsuite>
+</testsuites>

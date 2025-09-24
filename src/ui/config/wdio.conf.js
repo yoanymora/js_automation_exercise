@@ -56,21 +56,21 @@ export const config = {
     capabilities: [
         {
             browserName: 'chrome',
-        //     'goog:chromeOptions': {
-        //         args: ['headless', 'disable-gpu']
-        //     }
-        // },
-        // {
-        //     browserName: 'firefox',
-        //     'moz:firefoxOptions': {
-        //         args: ['-headless']
-        //     }
-        // },
-        // {
-        //     browserName: 'msedge',
-        //     'ms:edgeOptions': {
-        //         args: ['--headless']
-        //     }
+            'goog:chromeOptions': {
+                args: ['headless', 'disable-gpu']
+            }
+        },
+        {
+            browserName: 'firefox',
+            'moz:firefoxOptions': {
+                args: ['-headless']
+            }
+        },
+        {
+            browserName: 'msedge',
+            'ms:edgeOptions': {
+                args: ['--headless']
+            }
         }
     ],
 
@@ -143,7 +143,20 @@ export const config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
-    reporters: ['spec'],
+    reporters: [
+        'spec',
+        ['junit', {
+            outputDir: './ui/reports/junit',
+            errorOptions: {
+                error: 'message',
+                failure: 'message',
+                stacktrace: 'stack'
+            },
+            outputFileFormat: function(options) {
+                return `results-${options.capabilities.browserName}.xml`
+            }
+        }],
+    ],
 
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/
