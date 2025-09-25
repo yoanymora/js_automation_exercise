@@ -150,7 +150,7 @@ export const config = {
                 stacktrace: 'stack'
             },
             outputFileFormat: function(options) {
-                return `results-${options.capabilities.browserName}.xml`
+                return `result-${options.capabilities.browserName}-${options.cid}.xml`;
             }
         }],
     ],

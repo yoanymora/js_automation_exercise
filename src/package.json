@@ -11,8 +11,8 @@
     "supertest": "^7.1.4"
   },
   "scripts": {
-    "wdio": "wdio run ./ui/config/wdio.conf.js",
-    "supertest": "wdio run ./api/config/wdio.conf.js"
+    "ui": "wdio run ./ui/config/wdio.conf.js",
+    "api": "wdio run ./api/config/wdio.conf.js"
   },
   "dependencies": {
     "chai": "^6.0.1",
