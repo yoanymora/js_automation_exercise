@@ -1,4 +1,5 @@
 import HomePage from "../pages/home.page";
+import Common from "./common";
 
 class HomeService {
 
@@ -14,9 +15,9 @@ class HomeService {
     }
 
     async changeLanguageTo(language) {
-        HomePage.waitForClickable(await HomePage.header.languageSelector);
+        await Common.waitForClickable(await HomePage.header.languageSelector);
         await HomePage.header.languageSelector.click();
-        HomePage.waitForClickable(await HomePage.header.language(language));
+        await Common.waitForClickable(await HomePage.header.language(language));
         await HomePage.header.language(language).click();
     }
 
@@ -30,7 +31,7 @@ class HomeService {
 
     async computePriceRangeTo39() {
         let priceSelectorBarWidth = await HomePage.filter.priceSelectorBarWidth;
-        let priceSelectorBarWidthValue = priceSelectorBarWidth['parsed']['value']
+        let priceSelectorBarWidthValue = priceSelectorBarWidth['parsed']['value'];
         let valueToRest = (39 * await priceSelectorBarWidthValue) / parseInt(await HomePage.filter.priceRangeMaxValue.getText());
         return 0 - (await priceSelectorBarWidthValue - valueToRest);
     }

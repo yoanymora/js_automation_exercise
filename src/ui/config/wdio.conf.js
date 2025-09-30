@@ -60,19 +60,19 @@ export const config = {
         {
             browserName: 'chrome',
             'goog:chromeOptions': {
-                args: ['headless', 'disable-gpu', 'start-maximized']
+                args: ['--headless', 'disable-gpu', '--window-size=1920,1080']
             }
         },
         {
             browserName: 'firefox',
             'moz:firefoxOptions': {
-                args: ['-headless']
+                args: ['--headless', '--width=1920', '--height=1080']
             }
         },
         {
             browserName: 'msedge',
             'ms:edgeOptions': {
-                args: ['--headless']
+                args: ['--headless', '--window-size=1920,1080']
             }
         }
     ],

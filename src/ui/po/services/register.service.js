@@ -1,9 +1,11 @@
 import RegisterPage from "../pages/register.page";
+import Common from "./common";
 
 class RegisterService {
 
     async createUser () {
         await RegisterPage.open();
+        await Common.waitForExisting(await RegisterPage.form);
         await RegisterPage.name.setValue("test");
         await RegisterPage.lastName.setValue("test");
         await RegisterPage.birthDay.setValue("2000-01-01");
