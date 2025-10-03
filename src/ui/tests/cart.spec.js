@@ -39,14 +39,14 @@ describe('Cart', () => {
 
     it('User adds a product to the cart with chai', async () => {
         await HomePage.open();
-        HomePage.waitForClickable(await HomePage.productCards[0], 5000);
+        await HomePage.waitForClickable(await HomePage.productCards[0], 5000);
         await HomePage.productCards[0].click();
-        HomePage.waitForClickable(await ProductDetailsPage.addToCartButton, 5000);
+        await HomePage.waitForClickable(await ProductDetailsPage.addToCartButton, 5000);
         await ProductDetailsPage.addToCartButton.click();
-        HomePage.waitForVisible(await ProductDetailsPage.confirmationMessageContainer, 5000);
+        await HomePage.waitForVisible(await ProductDetailsPage.confirmationMessageContainer, 5000);
         await HomePage.waitUntilUpdateText(await ProductDetailsPage.confirmationMessageContainer, CartPage.productAddedToCartMessage);
         chaiExpect(await Common.getSelectorText(await ProductDetailsPage.confirmationMessageContainer)).to.equal(CartPage.productAddedToCartMessage);
-        HomePage.waitForVisible(await ProductDetailsPage.header.cartQuantity, 5000);
+        await HomePage.waitForVisible(await ProductDetailsPage.header.cartQuantity, 5000);
         chaiExpect(await Common.getSelectorText(await ProductDetailsPage.header.cartQuantity)).to.equal('3');
     });
 
@@ -65,7 +65,7 @@ describe('Cart', () => {
     it('User increases the quantity of products in its cart with chai', async () => {
         chaiExpect(await Common.getSelectorText(await ProductDetailsPage.header.cartQuantity)).to.equal('3');
         await CartPage.open();
-        HomePage.waitForVisible(await CartPage.productQuantity, 5000);
+        await HomePage.waitForVisible(await CartPage.productQuantity, 5000);
         await CartService.setProductQuantity('2');
         await HomePage.waitUntilUpdateText(await CartPage.linePrice, '$28.30');
         await CartPage.successMessageContainer.waitForExist({timeout: 1000});
