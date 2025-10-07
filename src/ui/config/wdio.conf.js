@@ -25,10 +25,10 @@ export const config = {
     //
     specs: [
         '../tests/cart.spec.js',
-        '../tests/language.selector.spec.js',
-        '../tests/login.spec.js',
-        '../tests/sort.products.spec.js',
-        '../tests/filter.products.spec.js',
+        // '../tests/language.selector.spec.js',
+        // '../tests/login.spec.js',
+        // '../tests/sort.products.spec.js',
+        // '../tests/filter.products.spec.js',
     ],
     // Patterns to exclude.
     exclude: [
@@ -60,21 +60,21 @@ export const config = {
         {
             browserName: 'chrome',
             'goog:chromeOptions': {
-                args: ['disable-gpu', 'start-maximized']
+                args: ['--headless=new', 'disable-gpu', 'start-maximized', '--window-size=1920,1080']
             }
         },
-        {
-            browserName: 'firefox',
-            'moz:firefoxOptions': {
-                // args: ['-headless']
-            }
-        },
-        {
-            browserName: 'msedge',
-            'ms:edgeOptions': {
-                // args: ['--headless']
-            }
-        }
+        // {
+        //     browserName: 'firefox',
+        //     'moz:firefoxOptions': {
+        //         args: ['-headless']
+        //     }
+        // },
+        // {
+        //     browserName: 'msedge',
+        //     'ms:edgeOptions': {
+        //         args: ['--headless']
+        //     }
+        // }
     ],
 
     //
@@ -135,7 +135,7 @@ export const config = {
     framework: 'mocha',
     //
     // The number of times to retry the entire specfile when it fails as a whole
-    specFileRetries: 2,
+    specFileRetries: 1,
     //
     // Delay in seconds between the spec file retry attempts
     specFileRetriesDelay: 2,

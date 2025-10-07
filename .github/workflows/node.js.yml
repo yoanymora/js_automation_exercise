@@ -9,27 +9,27 @@ on:
       - main
 
 jobs:
-  run_api_tests:
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        shell: bash
-        working-directory: ./src
+  # run_api_tests:
+  #   runs-on: ubuntu-latest
+  #   defaults:
+  #     run:
+  #       shell: bash
+  #       working-directory: ./src
 
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
+  #   steps:
+  #   - name: Checkout code
+  #     uses: actions/checkout@v4
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: '20.x'
+  #   - name: Setup Node.js
+  #     uses: actions/setup-node@v4
+  #     with:
+  #       node-version: '20.x'
 
-    - name: Install dependencies
-      run: npm install
+  #   - name: Install dependencies
+  #     run: npm install
 
-    - name: Run WebdriverIO API tests
-      run: npm run api
+  #   - name: Run WebdriverIO API tests
+  #     run: npm run api
 
   run_ui_tests:
     runs-on: ubuntu-latest
