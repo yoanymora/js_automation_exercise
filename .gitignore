@@ -3,6 +3,5 @@ src/api/reports/junit/
 src/api/reports/html-reports/
 src/ui/reports/junit/
 src/ui/reports/html-reports/
-
-# ignore node modules
-src/node_modules
+node_modules
+.vscode
