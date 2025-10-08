@@ -149,7 +149,7 @@ export const config = {
     reporters: [
         [HtmlReporter, {
             debug: true,
-            outputDir: './ui/reports/html-reports/',
+            outputDir: './src/ui/reports/html-reports/',
             filename: 'report.html',
             reportTitle: 'UI Test Report',
             showInBrowser:true
@@ -158,7 +158,7 @@ export const config = {
             'addConsoleLogs': true,
         }],
         ['junit', {
-            outputDir: './ui/reports/junit',
+            outputDir: './src/ui/reports/junit',
             errorOptions: {
                 error: 'message',
                 failure: 'message',
@@ -192,7 +192,7 @@ export const config = {
      */
     onPrepare: function (config, capabilities) {
         reportAggregator = new ReportAggregator({
-            outputDir: './ui/reports/html-reports/',
+            outputDir: './src/ui/reports/html-reports/',
             filename: 'master-report.html',
             reportTitle: 'UI Master Report',
             browserName: capabilities.browserName,
