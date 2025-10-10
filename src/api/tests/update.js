@@ -1,54 +1,64 @@
-import { bookingData } from '../data/booker.data.js';
-import bookerService from '../services/booker.service.js';
-import Validate from '../utils/validations.js';
+import { bookingData } from "../data/booker.data.js";
+import bookerService from "../services/booker.service.js";
+import Validate from "../utils/validations.js";
 
-describe('Update bookings', () => {
+describe("Update bookings", () => {
+	it("Incorrectly update booking", async () => {
+		const createBookingResponse = await bookerService.createBooking();
+		Validate.statusCode("ok", createBookingResponse.statusCode);
+		Validate.recordFirstname({ current: createBookingResponse.body.booking.firstname });
+		const updateBookingResponse = await bookerService.updateBooking({
+			bookingId: createBookingResponse.bookingId,
+			auth: "basic",
+			data: bookingData.createBooking.incorrect,
+		});
+		Validate.statusCode("internal-server-error", updateBookingResponse.statusCode);
+	});
 
-    it('Incorrectly update booking', async () => {
-        const createBookingResponse = await bookerService.createBooking();
-        Validate.statusCode('ok', createBookingResponse.statusCode);
-        Validate.recordFirstname({current: createBookingResponse.body.booking.firstname});
-        const updateBookingResponse = await bookerService.updateBooking(
-            {
-                bookingId: createBookingResponse.bookingId,
-                auth: 'basic',
-                data: bookingData.createBooking.incorrect
-            }
-        );
-        Validate.statusCode('internal-server-error', updateBookingResponse.statusCode);
-    });
+	it("Update booking with Basic Auth", async () => {
+		const createBookingResponse = await bookerService.createBooking();
+		Validate.recordFirstname({ current: createBookingResponse.body.booking.firstname });
+		const updateBookingResponse = await bookerService.updateBooking({
+			bookingId: createBookingResponse.bookingId,
+			auth: "basic",
+		});
+		Validate.statusCode("ok", updateBookingResponse.statusCode);
+		Validate.recordFirstname({
+			current: updateBookingResponse.body.firstname,
+			assertion: false,
+		});
+		Validate.recordFirstname({
+			current: updateBookingResponse.body.firstname,
+			expected: bookingData.updateBooking.firstname,
+		});
+		Validate.responseBody({
+			level: "schema",
+			request: "update",
+			value: updateBookingResponse.body,
+			assertion: true,
+		});
+	});
 
-    it('Update booking with Basic Auth', async () => {
-        const createBookingResponse = await bookerService.createBooking();
-        Validate.recordFirstname({current: createBookingResponse.body.booking.firstname});
-        const updateBookingResponse = await bookerService.updateBooking(
-            {
-                bookingId: createBookingResponse.bookingId,
-                auth: 'basic'
-            }
-        );
-        Validate.statusCode('ok', updateBookingResponse.statusCode);
-        Validate.recordFirstname({current: updateBookingResponse.body.firstname, assertion: false});
-        Validate.recordFirstname({current: updateBookingResponse.body.firstname, expected: bookingData.updateBooking.firstname});
-        Validate.responseBody(
-            {level: 'schema', request: 'update', value: updateBookingResponse.body, assertion: true}
-        );
-    });
-
-    it('Update booking with Authorization header', async () => {
-        const createBookingResponse = await bookerService.createBooking();
-        Validate.recordFirstname({current: createBookingResponse.body.booking.firstname});
-        const updateBookingResponse = await bookerService.updateBooking(
-            {
-                bookingId: createBookingResponse.bookingId,
-                auth: 'authorization_header',
-            }
-        );
-        Validate.recordFirstname({current: updateBookingResponse.body.firstname, assertion: false});
-        Validate.recordFirstname({current: updateBookingResponse.body.firstname, expected: bookingData.updateBooking.firstname});
-        Validate.responseBody(
-            {level: 'schema', request: 'update', value: updateBookingResponse.body, assertion: true}
-        );
-    });
-
+	it("Update booking with Authorization header", async () => {
+		const createBookingResponse = await bookerService.createBooking();
+		Validate.recordFirstname({ current: createBookingResponse.body.booking.firstname });
+		const updateBookingResponse = await bookerService.updateBooking({
+			bookingId: createBookingResponse.bookingId,
+			auth: "authorization_header",
+		});
+		Validate.recordFirstname({
+			current: updateBookingResponse.body.firstname,
+			assertion: false,
+		});
+		Validate.recordFirstname({
+			current: updateBookingResponse.body.firstname,
+			expected: bookingData.updateBooking.firstname,
+		});
+		Validate.responseBody({
+			level: "schema",
+			request: "update",
+			value: updateBookingResponse.body,
+			assertion: true,
+		});
+	});
 });

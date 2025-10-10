@@ -1,33 +1,33 @@
 {
-  "name": "js_automation_epam_practice_task",
-  "type": "module",
-  "devDependencies": {
-    "@eslint/js": "^9.37.0",
-    "@rpii/wdio-html-reporter": "^7.7.1",
-    "@wdio/browser-runner": "^9.19.1",
-    "@wdio/cli": "^9.19.1",
-    "@wdio/junit-reporter": "^9.19.2",
-    "@wdio/local-runner": "^9.19.1",
-    "@wdio/mocha-framework": "^9.19.1",
-    "@wdio/spec-reporter": "^9.19.1",
-    "eslint": "^9.37.0",
-    "eslint-plugin-mocha": "^11.2.0",
-    "globals": "^16.4.0",
-    "prettier": "3.6.2",
-    "supertest": "^7.1.4",
-    "wdio-html-nice-reporter": "^8.1.7",
-    "wdio-reportportal-reporter": "^7.6.0",
-    "wdio-reportportal-service": "^7.3.1"
-  },
-  	"scripts": {
+	"name": "js_automation_epam_practice_task",
+	"type": "module",
+	"devDependencies": {
+		"@eslint/js": "^9.37.0",
+		"@rpii/wdio-html-reporter": "^7.7.1",
+		"@wdio/browser-runner": "^9.19.1",
+		"@wdio/cli": "^9.19.1",
+		"@wdio/junit-reporter": "^9.19.2",
+		"@wdio/local-runner": "^9.19.1",
+		"@wdio/mocha-framework": "^9.19.1",
+		"@wdio/spec-reporter": "^9.19.1",
+		"eslint": "^9.37.0",
+		"eslint-plugin-mocha": "^11.2.0",
+		"globals": "^16.4.0",
+		"prettier": "3.6.2",
+		"supertest": "^7.1.4",
+		"wdio-html-nice-reporter": "^8.1.7",
+		"wdio-reportportal-reporter": "^7.6.0",
+		"wdio-reportportal-service": "^7.3.1"
+	},
+	"scripts": {
 		"ui": "wdio run ./src/ui/config/wdio.conf.js",
 		"api": "wdio run ./src/api/config/wdio.conf.js",
 		"lint": "eslint .",
 		"prettier": "prettier --check .",
 		"prettier-fix": "prettier --write ."
 	},
-  "dependencies": {
-    "chai": "^6.0.1",
-    "joi": "^18.0.1"
-  }
+	"dependencies": {
+		"chai": "^6.0.1",
+		"joi": "^18.0.1"
+	}
 }
