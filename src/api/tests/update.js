@@ -38,12 +38,10 @@ describe('Update bookings', () => {
     it('Update booking with Authorization header', async () => {
         const createBookingResponse = await bookerService.createBooking();
         Validate.recordFirstname({current: createBookingResponse.body.booking.firstname});
-        const authResponse = await bookerService.createRequest({verb: 'auth'});
         const updateBookingResponse = await bookerService.updateBooking(
             {
                 bookingId: createBookingResponse.bookingId,
                 auth: 'authorization_header',
-                token: authResponse.body.token
             }
         );
         Validate.recordFirstname({current: updateBookingResponse.body.firstname, assertion: false});

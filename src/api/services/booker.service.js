@@ -30,13 +30,13 @@ class BookerService  {
      * @param {data} object
      * @returns {object} contains the response of the request and the computed response time
      */
-    async createRequest({verb, endpoint, data, incompleteHeaders, auth, token}) {
+    async createRequest({verb, endpoint, data, incompleteHeaders, auth}) {
         let doRequest = {
             get: this.getRequest(endpoint),
             post: this.postRequest(endpoint, data, incompleteHeaders),
-            put: this.putRequest({endpoint: endpoint, data: data, auth: auth, token: token}),
+            put: this.putRequest({endpoint: endpoint, data: data, auth: auth}),
             auth: this.authRequest(),
-            delete: this.deleteBooking({endpoint: endpoint, auth: auth, token: token})
+            delete: this.deleteBooking({endpoint: endpoint, auth: auth})
         }
         const startTime = performance.now();
         let response = await doRequest[verb];
@@ -78,7 +78,7 @@ class BookerService  {
         .send(data);
     }
 
-    async putRequest({endpoint = this.endpoint.booking, data, auth, token}) {
+    async putRequest({endpoint = this.endpoint.booking, data, auth}) {
         if (auth === 'basic') {
             return await request(this.url)
             .put(endpoint)
@@ -95,7 +95,7 @@ class BookerService  {
         .send(data);
     }
 
-    async deleteRequest({endpoint, auth, token}) {
+    async deleteRequest({endpoint, auth}) {
         if (auth === 'basic') {
             return await request(this.url)
             .delete(endpoint)
@@ -122,25 +122,23 @@ class BookerService  {
         );
     }
 
-    async updateBooking({bookingId, auth, token, data = bookingData.updateBooking}) {
+    async updateBooking({bookingId, auth, data = bookingData.updateBooking}) {
         return await this.createRequest(
             {
                 verb: 'put',
                 endpoint: `${this.endpoint.booking}/${bookingId}`,
                 auth: auth,
-                token: token,
                 data: data,
             }
         );
     }
 
-    async deleteBooking({bookingId, auth, token}) {
+    async deleteBooking({bookingId, auth}) {
         return await this.deleteRequest(
             {
                 verb: 'delete',
                 endpoint: `${this.endpoint.booking}/${bookingId}`,
                 auth: auth,
-                token: token
             }
         );
     }

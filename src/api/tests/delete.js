@@ -13,9 +13,8 @@ describe('Delete booking', () => {
 
     it('Delete booking with Authorization header', async () => {
         const createBookingResponse = await bookerService.createBooking();
-        const authResponse = await bookerService.createRequest({verb: 'auth'});
         const deleteBookingResponse = await bookerService.deleteBooking(
-            {bookingId: createBookingResponse.bookingId, auth: 'authorization_header', token: authResponse.body.token}
+            {bookingId: createBookingResponse.bookingId, auth: 'authorization_header'}
         );
         Validate.statusCode('created', deleteBookingResponse.statusCode);
         const getDeletedBookingResponse = await bookerService.getBookings({bookingId: createBookingResponse.bookingId});
