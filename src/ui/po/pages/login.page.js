@@ -7,6 +7,10 @@ class LoginPage extends Page {
         super('auth/login');
     }
 
+    get form () {
+        return $('div.auth-form');
+    }
+
     get inputEmail () {
         return $('#email');
     }

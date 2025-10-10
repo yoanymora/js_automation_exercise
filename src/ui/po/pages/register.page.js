@@ -7,6 +7,10 @@ class RegisterPage extends Page {
         super('auth/register');
     }
 
+    get form () {
+        return $('div.auth-form');
+    }
+
     get name () {
         return $('#first_name');
     }
