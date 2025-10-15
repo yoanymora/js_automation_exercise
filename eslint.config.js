@@ -24,6 +24,7 @@ export default defineConfig([
 			"max-params": ["error", 4],
 			"no-console": "error",
 			"no-var": "error",
+			"no-unused-vars": "off",
 		},
 	},
 ]);

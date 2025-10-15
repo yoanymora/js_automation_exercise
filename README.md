@@ -31,7 +31,9 @@ To compile this project locally follow the steps:
 2. Inside the main folder run the command `npm install` in order to have all the dependencies required for the project
 3. To run lints use the commands `npm run lint` and `npm run prettier`
 4. To run API tests use the command `npm run api`
-5. Tu run UI tests use the command `npm run ui`
+5. To run UI tests use the command `npm run ui`
+6. To run BDD tests with Cucumber use the command `npm run cucumber`
+    > NOTE: There are different tags in the _ui/tests/features_ cucumber tests, to run the features by tag you must run the command `npm run cucumber -- --cucumberOpts.tags="@tag_name"` replacing the 'tag*name' by \_sort*, _filter_, _cart_, _login_ or _language_.
 
 > NOTE: If you want to modify this project and fix errors found during the `npm run prettier` execution you can use the command `npm run prettier-fix`.
 

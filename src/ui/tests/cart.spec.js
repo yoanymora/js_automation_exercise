@@ -8,7 +8,6 @@ import Common from "../po/services/common";
 describe("Cart", () => {
 	it("User adds a product to the cart with spect", async () => {
 		await HomePage.open();
-		// browser.saveScreenshot("tests/dummy.png");
 		await Common.waitForExisting(await HomePage.productsGrid);
 		await Common.waitForExisting(await HomePage.productCards[0]);
 		await Common.waitForClickable(await HomePage.productCards[0]);
