@@ -1,10 +1,9 @@
 export default class BaseComponent {
+	constructor(rootSelector) {
+		this.rootSelector = rootSelector;
+	}
 
-    constructor(rootSelector) {
-        this.rootSelector = rootSelector;
-    }
-
-    get rootElement() {
-        return $(this.rootSelector);
-    }
+	get rootElement() {
+		return $(this.rootSelector);
+	}
 }
