@@ -1,4 +1,4 @@
-import request from "supertest";
+import Request from "supertest";
 import { bookingData } from "../data/booker.data.js";
 
 class BookerService {
@@ -52,21 +52,21 @@ class BookerService {
 	}
 
 	async authRequest(endpoint = this.endpoint.auth) {
-		return await request(this.url)
+		return await Request(this.url)
 			.post(endpoint)
 			.set("Content-type", "application/json")
 			.send(bookingData.authData);
 	}
 
 	async getRequest(endpoint) {
-		return await request(this.url).get(endpoint).set("Accept", "application/json");
+		return await Request(this.url).get(endpoint).set("Accept", "application/json");
 	}
 
 	async postRequest(endpoint = this.endpoint.booking, data, incompleteHeaders = false) {
 		if (incompleteHeaders) {
-			return await request(this.url).post(endpoint).send(data);
+			return await Request(this.url).post(endpoint).send(data);
 		}
-		return await request(this.url)
+		return await Request(this.url)
 			.post(endpoint)
 			.set("Content-type", "application/json")
 			.set("Accept", "application/json")
@@ -75,14 +75,14 @@ class BookerService {
 
 	async putRequest({ endpoint = this.endpoint.booking, data, auth }) {
 		if (auth === "basic") {
-			return await request(this.url)
+			return await Request(this.url)
 				.put(endpoint)
 				.set("Accept", "application/json")
 				.set("Content-type", "application/json")
 				.auth(bookingData.authData["username"], bookingData.authData["password"])
 				.send(data);
 		}
-		return await request(this.url)
+		return await Request(this.url)
 			.put(endpoint)
 			.set("Accept", "application/json")
 			.set("Content-type", "application/json")
@@ -92,11 +92,11 @@ class BookerService {
 
 	async deleteRequest({ endpoint, auth }) {
 		if (auth === "basic") {
-			return await request(this.url)
+			return await Request(this.url)
 				.delete(endpoint)
 				.auth(bookingData.authData["username"], bookingData.authData["password"]);
 		}
-		return await request(this.url)
+		return await Request(this.url)
 			.delete(endpoint)
 			.set("Authorization", this.authorizationBasic);
 	}

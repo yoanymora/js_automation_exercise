@@ -1,13 +1,13 @@
 import { bookingData } from "../data/booker.data.js";
-import bookerService from "../services/booker.service.js";
+import BookerService from "../services/booker.service.js";
 import Validate from "../utils/validations.js";
 
 describe("Update bookings", () => {
 	it("Incorrectly update booking", async () => {
-		const createBookingResponse = await bookerService.createBooking();
+		const createBookingResponse = await BookerService.createBooking();
 		Validate.statusCode("ok", createBookingResponse.statusCode);
 		Validate.recordFirstname({ current: createBookingResponse.body.booking.firstname });
-		const updateBookingResponse = await bookerService.updateBooking({
+		const updateBookingResponse = await BookerService.updateBooking({
 			bookingId: createBookingResponse.bookingId,
 			auth: "basic",
 			data: bookingData.createBooking.incorrect,
@@ -16,9 +16,9 @@ describe("Update bookings", () => {
 	});
 
 	it("Update booking with Basic Auth", async () => {
-		const createBookingResponse = await bookerService.createBooking();
+		const createBookingResponse = await BookerService.createBooking();
 		Validate.recordFirstname({ current: createBookingResponse.body.booking.firstname });
-		const updateBookingResponse = await bookerService.updateBooking({
+		const updateBookingResponse = await BookerService.updateBooking({
 			bookingId: createBookingResponse.bookingId,
 			auth: "basic",
 		});
@@ -40,9 +40,9 @@ describe("Update bookings", () => {
 	});
 
 	it("Update booking with Authorization header", async () => {
-		const createBookingResponse = await bookerService.createBooking();
+		const createBookingResponse = await BookerService.createBooking();
 		Validate.recordFirstname({ current: createBookingResponse.body.booking.firstname });
-		const updateBookingResponse = await bookerService.updateBooking({
+		const updateBookingResponse = await BookerService.updateBooking({
 			bookingId: createBookingResponse.bookingId,
 			auth: "authorization_header",
 		});
