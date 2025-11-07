@@ -5,6 +5,7 @@ import ProductDetailsPage from "../../../po/pages/product.details.page.js";
 import Common from "../../../po/services/common.js";
 import CartPage from "../../../po/pages/cart.page.js";
 import CartService from "../../../po/services/cart.service.js";
+import RegisterService from "../../../po/services/register.service.js";
 
 When("{string} sorts the products by price from {string}", async function (userName, sortBy) {
 	if (sortBy === "highest to lowest") {
@@ -45,3 +46,14 @@ When(
 		await CartService.setProductQuantity("2");
 	}
 );
+
+When(
+	"{string} add the following email: {string} and password: {string}",
+	async (unerName, email, password) => {
+		await RegisterService.fillEmailAndPassword(email, password);
+	}
+);
+
+When("submit the register form", async () => {
+	await RegisterService.submitRegisterForm();
+});

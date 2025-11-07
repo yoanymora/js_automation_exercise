@@ -2,7 +2,7 @@ import RegisterPage from "../pages/register.page";
 import Common from "./common";
 
 class RegisterService {
-	async createUser() {
+	async fillRegisterForm({ fillEmailAndPassword = true }) {
 		await RegisterPage.open();
 		await Common.waitForExisting(await RegisterPage.form);
 		await RegisterPage.name.setValue("test");
@@ -14,9 +14,18 @@ class RegisterService {
 		await RegisterPage.state.setValue("test");
 		await RegisterPage.country.selectByAttribute("value", "AL");
 		await RegisterPage.phone.setValue("3332221111");
-		await RegisterPage.email.setValue("test@test.com");
-		await RegisterPage.password.setValue("Testtest01.");
+		if (fillEmailAndPassword) {
+			await this.fillEmailAndPassword("test@test.com", "Testtest01.");
+		}
+	}
+
+	async submitRegisterForm() {
 		await RegisterPage.registerButton.click();
+	}
+
+	async fillEmailAndPassword(email, password) {
+		await RegisterPage.email.setValue(email);
+		await RegisterPage.password.setValue(password);
 	}
 }
 

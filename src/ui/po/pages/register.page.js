@@ -61,6 +61,10 @@ class RegisterPage extends Page {
 	get registerButton() {
 		return $('button[data-test="register-submit"]');
 	}
+
+	get passwordError() {
+		return $('[data-test="password-error"]');
+	}
 }
 
 export default new RegisterPage();

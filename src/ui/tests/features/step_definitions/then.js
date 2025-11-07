@@ -6,6 +6,8 @@ import ProductDetailsPage from "../../../po/pages/product.details.page.js";
 import Common from "../../../po/services/common.js";
 import CartPage from "../../../po/pages/cart.page.js";
 import CartService from "../../../po/services/cart.service.js";
+import RegisterService from "../../../po/services/register.service.js";
+import RegisterPage from "../../../po/pages/register.page.js";
 
 Then("the products matrix is updated after {string}", async function (sortAction) {
 	if (sortAction === "sort") {
@@ -93,3 +95,8 @@ Then(
 		}
 	}
 );
+
+Then("{string} get the following message: {string}", async (userName, message) => {
+	let passwordErrorContainer = await RegisterPage.passwordError;
+	await expect(passwordErrorContainer).toHaveText(message);
+});
